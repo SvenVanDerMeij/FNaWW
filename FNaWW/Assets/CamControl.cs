@@ -67,15 +67,19 @@ public class CamControl : MonoBehaviour
 
      public void Dead()
     {
-        if ((methScript.GetComponent<Methcounter>().methcount) < 100)
+        map.SetActive(false);
+        meth.SetActive(false);
+        cam.SetActive(false);
+        if ((methScript.GetComponent<Methcounter>().methcount) < 200)
         {
-            map.SetActive(false);
             
-            meth.SetActive(false);
-            cam.SetActive(false);
             gameObject.transform.position = new Vector3(6.56f, 0, 100);
             startTime = true;
             deadTimer += Time.deltaTime;
+        }
+        else
+        {
+            gameObject.transform.position = new Vector3(6.56f, 0, 140);
         }
     }
 
